@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const videoSchema =  new mongoose.Schema({
-  title:{
+  name:{
     type:String,
     required:true
   },
@@ -12,9 +12,13 @@ const videoSchema =  new mongoose.Schema({
   videoUrl:{
     type:String,
   },
-  imageUrl: {
+  image: {
     type:String,
     required: true
+  },
+  group:{
+    type: String,
+    required:  true
   }
 
 });

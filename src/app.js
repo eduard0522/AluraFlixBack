@@ -2,6 +2,7 @@ import express from 'express'
 import cors from "cors"
 import morgan from 'morgan';
 import routerVideos from './router/videos.routes.js';
+import routerGroup from './router/groups.routes.js';
 
 const app =  express();
 
@@ -13,7 +14,7 @@ app.use(cors({
 
 } ));
 
-
+app.use("/groups", routerGroup)
 app.use(routerVideos);
 
 export default app
