@@ -12,12 +12,13 @@ export const getAllVideos = async (req,res) => {
 
 
 export const createVideo = async (req,res) => {
+  console.log(req.body)
   try {
     const newVideo = new Video(req.body);
     const savedVideo = await newVideo.save();
-    if(savedVideo) res.send("successfully created video")
+    if(savedVideo) res.json({ newVideo })
   } catch (error) {
-     return res.status(400).json({ message : error.errors })
+     return res.status(400).json({ message :[ error.errors ]})
   }  
 }
 

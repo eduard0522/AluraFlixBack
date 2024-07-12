@@ -1,9 +1,11 @@
 import Group from "../models/group.js"
 
+
+
 export const getGroups = async (req,res) => {
   try {
-    const videos = await  Group.find();
-    res.status(200).json(videos);
+    const groups = await  Group.find();
+    res.status(200).json(groups);
   } catch (error) {
     console.log(error);
     res.status(404).json({message: "An unexpected error ocurred." })
@@ -22,6 +24,7 @@ export const createGroup = async (req,res) => {
 }
 
 export const updateGroup = async (req,res) => {
+
   const {id} = req.params
   try {
     const group = await Group.findByIdAndUpdate(id, req.body , { new : true });

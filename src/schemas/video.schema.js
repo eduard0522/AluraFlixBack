@@ -24,6 +24,7 @@ const createVideoSchema = z.object({
   })
 });
 
+
 const updateVideoSchema = z.object({
   name: z.string({
     invalid_type_error : "name must be a string"
@@ -42,12 +43,9 @@ const updateVideoSchema = z.object({
     }).optional()
 });
 
-const validateVideoSchema = (data) => {
-  return createVideoSchema.parse(data);
-}
+
 
 export {
   createVideoSchema,
-  validateVideoSchema,
   updateVideoSchema
 }
