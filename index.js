@@ -13,7 +13,7 @@ const app =  express();
 app.use(morgan("combined"));
 app.use(express.json());
 app.use(cors({
-  origin: "https://alura-flix-coral.vercel.app/",
+  origin: "https://alura-flix-coral.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
