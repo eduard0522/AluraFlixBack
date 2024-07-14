@@ -5,8 +5,6 @@ import validateSchema from "../middlewares/validateSchema.js";
 
 const  router = Router();
 
-
-
 router.get("/", getGroups);
 
 router.post("/", validateSchema(createGroupSchema), createGroup);
@@ -14,6 +12,5 @@ router.post("/", validateSchema(createGroupSchema), createGroup);
 router.put("/:id",validateSchema(updateGroupSchema), updateGroup);
 
 router.delete("/:id", deleteGroup);
-
 
 export default router;

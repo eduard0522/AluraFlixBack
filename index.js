@@ -1,4 +1,4 @@
-import app from "./src/app.js";
+/* import app from "./src/app.js";
 import { connectionDB } from "./src/db/index.js";
 
 import { config } from "dotenv";
@@ -13,4 +13,4 @@ connectionDB()
 app.listen(port , () => {
   
   console.log("Server is running on port ", port);
-});
+}); */
