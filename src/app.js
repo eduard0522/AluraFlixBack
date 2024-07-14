@@ -11,7 +11,6 @@ config()
 const app =  express();
 const port = process.env.PORT || 9876
 
-
 app.use(morgan("combined"));
 app.use(express.json());
 app.use(cors({
@@ -23,11 +22,9 @@ app.use(cors({
 app.use("/groups", routerGroup)
 app.use(routerVideos);
 
-
 connectionDB()
 
 app.listen(port , () => {
-  
   console.log("Server is running on port ", port);
 });
 
