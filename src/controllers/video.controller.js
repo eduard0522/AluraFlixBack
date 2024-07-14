@@ -10,6 +10,16 @@ export const getAllVideos = async (req,res) => {
   }
 }
 
+export const getVideoById = async (req,res) => {
+  const { id } = req.params
+  try {
+    const video =  await Video.findById(id);
+    if(!video) return res.status(404).json({ message : [ " Video not found."]});
+    return res.json(video)
+  } catch (error) {
+    return res.status(500).json({ message : [ "An unexpected error ocurred. "]})
+  }
+}
 
 export const createVideo = async (req,res) => {
   console.log(req.body)
@@ -25,6 +35,8 @@ export const createVideo = async (req,res) => {
 export const updateVideo = async (req,res) => {
   const { id } = req.params;
   try {
+    console.log(id, req.body);
+    
     const video = await Video.findByIdAndUpdate( id , req.body , { new : true});
 
     if(!video) return res.status(404).json({ message : " Video not found "});
