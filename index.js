@@ -1,16 +1,28 @@
-/* import app from "./src/app.js";
-import { connectionDB } from "./src/db/index.js";
+import express from 'express'
+import cors from "cors"
+import morgan from 'morgan';
+import routerVideos from './src/router/videos.routes.js';
+import routerGroup from './src/router/groups.routes.js';
+import { connectionDB } from './src/db/index.js'
 
-import { config } from "dotenv";
+import dotenv from 'dotenv';
+dotenv.config();
 
-config()
+const app =  express();
+
+app.use(morgan());
+app.use(express.json());
+app.use(cors());
 
 
-const port = process.env.PORT || 9876
+app.use("/groups", routerGroup)
+app.use("/",routerVideos);
 
+ 
 connectionDB()
 
-app.listen(port , () => {
-  
-  console.log("Server is running on port ", port);
-}); */
+app.listen(5500,  () => {
+  console.log("Server is running on port 3000")
+});
+
+export default app
