@@ -14,9 +14,11 @@ app.use(morgan("combined"));
 app.use(express.json());
 app.use(cors());
 
-
+app.get("/", (req,res) => {
+  res.send("Hello World");
+})
 app.use("/groups", routerGroup)
-app.use("/",routerVideos);
+app.use("/api",routerVideos);
 
  
 connectionDB()
